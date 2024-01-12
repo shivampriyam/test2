@@ -5,12 +5,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public class Driver {
+	private static WebDriver driver;
 
 	public static WebDriver getDriver(String browser) {
 		if(browser.equalsIgnoreCase("ChromeDriver"))
-			return new ChromeDriver();
+			driver = new ChromeDriver();
 		else
-			return new EdgeDriver();
+			driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		return driver;
 	}
 
 	
